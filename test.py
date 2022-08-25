@@ -1,4 +1,6 @@
 import sys
+import path
+
 
 def increase_rightest(a,n):
     for i in range(len(a)-1,0,-1):

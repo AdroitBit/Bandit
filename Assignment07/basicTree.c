@@ -7,7 +7,9 @@
 // For example:
 typedef struct node {
     int value;
+    tree_t* parent;
     tree_t* first_child;
+    tree_t* prev_sibling;
     tree_t* next_sibling;
 } node_t;
 typedef node_t tree_t;
@@ -41,6 +43,7 @@ tree_t* create_node(int value){
 tree_t* attach(tree_t* t,int p,int c){
     tree_t* c_t = create_node(c);
     tree_t* p_t=search(t,p);
+    c_t->parent=p_t;
     if(p_t->first_child==NULL){
         p_t->first_child = c_t;
     }else{
@@ -81,14 +84,54 @@ tree_t* degree(tree_t* t,int node){
     }
     return n;
 }
-int is_root(tree_t* t,int node);//node เป้นตัวรากมั๊ย
-int is_leaf(tree_t* t,int node);//node เป็นตัวล่างสุดมั๊ย
-void siblings(tree_t* t,int node);//แฝด : parent แล้ว children เลย
-int depth(tree_t* t,int node);//
-void print_path(tree_t* t,int start,int end);
-int path_length(tree_t* t,int start,int end);
-void ancestor(tree_t* t,int node);
-void descendant(tree_t* t,int node);
+int is_root(tree_t* t,int node){
+    return t->parent == NULL;
+}
+int is_leaf(tree_t* t,int node){
+    return t->first_child == NULL;
+}
+void siblings(tree_t* t,int node){
+    t=t->parent->first_child;
+    while (t!=NULL){
+        printf("%d ",t->value);
+        t=t->next_sibling;
+    }
+}
+int depth(tree_t* t,int node){
+    int d=0;
+    while (t->parent!=NULL){
+        t=t->parent;
+        d++;
+    }
+    return d;
+}
+void print_path(tree_t* t,int start,int end){
+    tree_t* s=search(t,start);
+    tree_t* e=search(t,end);
+    while (s!=e){
+        printf("%d ",s->value);
+        s=s->parent;
+    }
+}
+int path_length(tree_t* t,int start,int end){
+    int d=0;
+    tree_t* s=search(t,start);
+    tree_t* e=search(t,end);
+    while (s!=e){
+        s=s->parent;
+        d++;
+    }
+    return d;
+}
+void ancestor(tree_t* t,int node){
+    while (t->parent!=NULL){
+        t=t->parent;
+        printf("%d ",t->value);
+    }
+};
+void descendant(tree_t* t,int node){
+    
+};
 void bfs(tree_t* t);
 void dfs(tree_t* t);
 void print_tree(tree_t* t);
