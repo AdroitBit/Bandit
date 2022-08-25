@@ -17,7 +17,7 @@ typedef node_t tree_t;
 tree_t* attach(tree_t* t,int parent,int child);//parent node,and child node
 tree_t* detach(tree_t* t,int node);
 tree_t* search(tree_t* t,int node);
-tree_t* degree(tree_t* t,int node);//amount of nodes
+tree_t* degree(tree_t* t,int node);//amount of children nodes
 int is_root(tree_t* t,int node);//node เป้นตัวรากมั๊ย
 int is_leaf(tree_t* t,int node);//node เป็นตัวล่างสุดมั๊ย
 void siblings(tree_t* t,int node);//แฝด : parent แล้ว children เลย
@@ -52,9 +52,35 @@ tree_t* attach(tree_t* t,int p,int c){
     }
     return t;
 }
-tree_t* detach(tree_t* t,int node);
-tree_t* search(tree_t* t,int node);
-tree_t* degree(tree_t* t,int node);//amount of nodes
+tree_t* detach(tree_t* t,int node){
+
+}
+tree_t* search(tree_t* t,int node){
+    tree_t* r=NULL;
+
+    if(t->value==node){
+        r=t;
+    }
+    //not found in current node,search in child
+    if(r==NULL && t->first_child!=NULL){
+        r=search(t->first_child,node);
+    }
+    //no children search in siblings
+    if(r==NULL){
+        r=search(t->next_sibling,node);
+    }
+    return r;
+};
+tree_t* degree(tree_t* t,int node){
+    t=t->first_child;
+    if (t==NULL)return 0;
+    int n=1;
+    while (t->next_sibling!=NULL) {
+        t=t->next_sibling;
+        n++;
+    }
+    return n;
+}
 int is_root(tree_t* t,int node);//node เป้นตัวรากมั๊ย
 int is_leaf(tree_t* t,int node);//node เป็นตัวล่างสุดมั๊ย
 void siblings(tree_t* t,int node);//แฝด : parent แล้ว children เลย
