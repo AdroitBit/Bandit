@@ -1,0 +1,6 @@
+scp Assignment09/bullshitTree/bullshitTree.c b6410500211@adt.mikelab.net:/home/b64/b6410500211/Assignment09/
+
+
+scp Assignment09/avlTree/avlTree.c b6410500211@adt.mikelab.net:/home/b64/b6410500211/Assignment09/
+
+ssh b6410500211@adt.mikelab.net "mkdir -p Assignment09" && scp Assignment09/bullshitTree/bullshitTree.c b6410500211@adt.mikelab.net:/home/b64/b6410500211/Assignment09/ && scp Assignment09/avlTree/avlTree.c b6410500211@adt.mikelab.net:/home/b64/b6410500211/Assignment09/

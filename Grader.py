@@ -5,6 +5,7 @@ import time
 from glob import glob
 import difflib
 import time
+os.system("clear")
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 class bcolors:
@@ -25,7 +26,9 @@ problem_name=input("Input Your problem name : ")
 os.system(f"gcc -o {assignment_folder}/{problem_name}/a.out {assignment_folder}/{problem_name}/{problem_name}.c")
 
 
+
 test_case_files=glob(f"{assignment_folder}/{problem_name}/test_cases/test_case*.txt")
+test_case_files.sort() 
 #test_case_files=[
 #    #f"{assignment_folder}/{problem_name}/test_cases/input11.txt",
 #    #f"{assignment_folder}/{problem_name}/test_cases/input12.txt",
@@ -35,12 +38,13 @@ for test_case_file in test_case_files:
     print(f"{bcolors.OKCYAN}Testing {test_case_file}{bcolors.ENDC}")
     result_test_case_file=f"{assignment_folder}/{problem_name}/test_cases/result_{os.path.basename(test_case_file)}"
     lines=open(test_case_file,"r").read().split("\n")
-    all_inputs=[line[3:] for line in lines if line[0:3]=="i| "]
-    all_outputs=[line[3:] for line in lines if line[0:3]=="O= "]
+    all_inputs=[line[3:].rstrip() for line in lines if line[0:3]=="i| "]
+    all_outputs=[line[3:].rstrip() for line in lines if line[0:3]=="O= "]
     with open("_temp.txt","w") as f:
         f.write("\n".join(all_inputs))
     #program_output=subprocess.Popen(f"cat _temp.txt | ./{assignment_folder}/{problem_name}/a.out",stdout=subprocess.DEVNULL).read()
     program_output=os.popen(f"cat _temp.txt | ./{assignment_folder}/{problem_name}/a.out").read()
+    print(program_output)
     os.remove("_temp.txt")
 
     
@@ -66,8 +70,10 @@ for test_case_file in test_case_files:
     compare_test_case_file=f"{assignment_folder}/{problem_name}/test_cases/compare_{os.path.basename(test_case_file)}"
     if len(program_output)!=0:
         with open(compare_test_case_file,"w") as f:
+            content1=[line.rstrip() for line in open(file1).readlines()]
+            content2=[line.rstrip() for line in open(file2).readlines()]
             for line in difflib.unified_diff(
-                open(file1).readlines(), open(file2).readlines(), fromfile=file1,
+                content1, content2, fromfile=file1,
                 tofile=file2, lineterm=''):
                 #print(line)
                 f.write(line)

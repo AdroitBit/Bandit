@@ -1,0 +1,48 @@
+i| 16
+i| 1 1
+i| 1 2
+i| 1 3
+i| 3
+O= r2
+O=     L1
+O=     R3
+i| 1 4
+i| 1 5
+i| 1 6
+i| 3
+O= r4
+O=     L2
+O=         L1
+O=         R3
+O=     R5
+O=         R6
+i| 1 7
+i| 1 8
+i| 1 9
+i| 1 10
+i| 3
+O= r4
+O=     L2
+O=         L1
+O=         R3
+O=     R8
+O=         L6
+O=             L5
+O=             R7
+O=         R9
+O=             R10
+i| 1 11
+i| 1 12
+i| 3
+O= r8
+O=     L4
+O=         L2
+O=             L1
+O=             R3
+O=         R6
+O=             L5
+O=             R7
+O=     R10
+O=         L9
+O=         R11
+O=             R12
