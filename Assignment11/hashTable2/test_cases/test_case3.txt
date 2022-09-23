@@ -1,0 +1,22 @@
+i| 31 14 19
+i| 1 mhewrv
+i| 1 rkrfni
+i| 1 wtabik
+i| 1 ibpffi
+i| 1 hwrthu
+i| 1 mcpsnn
+i| 1 xmyprx
+i| 2 mhewrv
+O= 1
+i| 2 rkrfni
+O= 2
+i| 2 wtabik
+O= 4
+i| 2 ibpffi
+O= 3
+i| 2 hwrthu
+O= 7
+i| 2 mcpsnn
+O= 5
+i| 2 xmyprx
+O= 11

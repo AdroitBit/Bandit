@@ -1,0 +1,31 @@
+i| 211 20 93
+i| 1 abcd
+i| 1 abdc
+i| 1 afnc
+i| 1 oog
+i| 1 ozg
+i| 1 obg
+i| 1 obp
+i| 1 fjdlo
+i| 1 auvun
+i| 1 adzlr
+i| 2 abcd
+O= 142
+i| 2 abdc
+O= 23
+i| 2 afnc
+O= 101
+i| 2 oof
+O= 76
+i| 2 ozg
+O= 44
+i| 2 obg
+O= 133
+i| 2 obp
+O= 143
+i| 2 fjdlo
+O= 91
+i| 2 auvun
+O= 92
+i| 2 adzlr
+O= 94

@@ -1,0 +1,17 @@
+i| 13 10 9
+i| 1 qwert
+i| 1 asdf
+i| 1 zklwo
+i| 1 a
+i| 2 qwert
+O= 9
+i| 2 qwerty
+O= -1
+i| 2 a
+O= 6
+i| 2 asdf
+O= 2
+i| 2 omg
+O= -1
+i| 2 abcd
+O= -1
