@@ -15,7 +15,7 @@ i| 2 abdc
 O= 23
 i| 2 afnc
 O= 101
-i| 2 oof
+i| 2 oog
 O= 76
 i| 2 ozg
 O= 44
