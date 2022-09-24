@@ -3,3 +3,4 @@ result_*.txt
 compare_*.txt
 __pycache__/
 *.py[cod]
+a.out
