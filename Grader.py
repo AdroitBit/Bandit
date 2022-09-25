@@ -19,9 +19,7 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 assignment_folder=input("Input Your assignment folder : ")
-#assignment_folder="Assignment07"
 problem_name=input("Input Your problem name : ")
-#problem_name="basicTree"
 
 os.system(f"gcc -o {assignment_folder}/{problem_name}/a.out {assignment_folder}/{problem_name}/{problem_name}.c")
 
